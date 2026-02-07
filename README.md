@@ -179,7 +179,7 @@ graph TD
 ```mermaid
 graph TD
     A[Clean Dataset] --> B[Standardize Features];
-    B --> C[Train/Test Split (80/20)];
+    B --> C["Train/Test Split (80/20)"];
     C --> D[Model Selection];
     D --> E[Logistic Regression];
     D --> F[SVM];
