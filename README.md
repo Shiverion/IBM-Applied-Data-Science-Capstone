@@ -47,7 +47,7 @@ graph TD
     C --> D[Filter: Falcon 9 Launches];
     D --> E[Extract Core Attributes];
     B -- Web Scraping --> F[Wikipedia HTML];
-    F --> G[BeautifulSoup Parsing];
+    F --> G["BeautifulSoup Parsing"];
     G --> H[Extract Table Data];
     E --> I[Pandas DataFrame];
     H --> I;
@@ -133,6 +133,15 @@ graph TD
 - Perform interactive visual analytics using Folium and Plotly Dash
 -   **Notebooks**:
     -   [EDA with Visualization](./jupyter-labs-eda-dataviz-v2.ipynb)
+    -   **GitHub Link**: [View on GitHub](https://github.com/Shiverion/IBM-Applied-Data-Science-Capstone/blob/master/jupyter-labs-eda-dataviz-v2.ipynb)
+
+-   **Visualization Summary**:
+    -   **Scatter Plot (Flight Number vs. Launch Site)**: To observe if specific launch sites were favored at different stages of SpaceX's history.
+    -   **Scatter Plot (Payload Mass vs. Launch Site)**: To determine if certain launch sites are specialized for heavier or lighter payloads.
+    -   **Bar Chart (Success Rate vs. Orbit)**: To identify which orbits have the highest success rates and which are technically more challenging.
+    -   **Scatter Plot (Flight Number vs. Orbit)**: To visualize the sequence of orbit deployments over time.
+    -   **Scatter Plot (Payload Mass vs. Orbit)**: To understand the payload capacity distribution across different orbits.
+    -   **Line Chart (Yearly Success Trend)**: To track the overall reliability and improvement of Falcon 9 landings over the years.
 
 ## EDA with SQL
 -   **Key Queries**:
