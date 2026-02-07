@@ -34,7 +34,7 @@ The primary objective of this project is to predict whether the first stage of t
 -   **Interactive Visual Analytics**: Creating maps and dashboards for dynamic exploration.
 -   **Predictive Analysis**: Building machine learning models to classify landing outcomes.
 
-# Data Collection
+## Data Collection
 -   **Methodology**: we employed a dual-source strategy to compile a comprehensive dataset:
     1.  **Direct API Consumption**: Leveraged the SpaceX REST API to acquire structured launch data.
     2.  **Web Scraping**: Utilized **BeautifulSoup** to scrape historical launch records from Wikipedia for supplementary context.
@@ -54,7 +54,7 @@ graph TD
     I --> J[Proceed to Data Wrangling];
 ```
 
-# Data Collection – SpaceX API
+## Data Collection – SpaceX API
 -   **Process**: We used the SpaceX REST API (`https://api.spacexdata.com/v4/launches/past`) to retrieve historical launch data.
 -   **Details**: Requests were filtered for Falcon 9 launches. We extracted core attributes including Booster Version, Payload Mass, Orbit, Launch Site, and Landing Outcome.
 -   The JSON responses were parsed and normalized into a Pandas DataFrame.
@@ -80,7 +80,7 @@ graph TD
     N --> O[Export to CSV];
 ```
 
-# Data Collection - Scraping
+## Data Collection - Scraping
 -   **Process**: We utilized **BeautifulSoup** to scrape additional Falcon 9 launch records from Wikipedia.
 -   **Details**: Static HTML tables were parsed to extract data such as Flight No, Date, Time, Version Booster, Launch Site, Payload, and Mission Outcome.
 -   This data was used to cross-reference and supplement the API dataset.
@@ -105,7 +105,7 @@ graph TD
     M --> N[Export to CSV];
 ```
 
-# Data Wrangling
+## Data Wrangling
 -   **Filtering**: We filtered the dataset to include only Falcon 9 launches.
 -   **Missing Values**: Missing values in the `PayloadMass` column were replaced with the mean payload mass.
 -   **Outcome Classification**: We created a binary `Class` column:
@@ -128,13 +128,13 @@ graph TD
     H --> I;
 ```
 
-# EDA with Data Visualization
+## EDA with Data Visualization
 - Perform exploratory data analysis (EDA) using visualization and SQL
 - Perform interactive visual analytics using Folium and Plotly Dash
 -   **Notebooks**:
     -   [EDA with Visualization](./jupyter-labs-eda-dataviz-v2.ipynb)
 
-# EDA with SQL
+## EDA with SQL
 -   **Key Queries**:
     -   Calculated total payload mass carried by NASA boosters.
     -   Identified average payload mass for booster version F9 v1.1.
@@ -142,7 +142,7 @@ graph TD
     -   Ranked count of landing outcomes between specific dates.
 -   **Notebook**: [EDA with SQL](./jupyter-labs-eda-sql-coursera_sqllite.ipynb)
 
-# Build an Interactive Map with Folium
+## Build an Interactive Map with Folium
 -   **Map Objects**: Created markers for each launch site (CCAFS SLC-40, KSC LC-39A, VAFB SLC-4E).
 -   **Color Coding**: Used green markers for successful landings and red markers for failed landings.
 -   **Proximities**: Added circles and lines to visualize distances from launch sites to nearest coastlines, railways, and highways, assessing safety zones.
@@ -187,54 +187,53 @@ graph TD
 - Predictive analysis results
 
 
-# Insight drawn from EDA
-# Insight drawn from EDA
-## Flight Number vs. Launch Site
+## Insight drawn from EDA
+### Flight Number vs. Launch Site
 -   **Insight**: As flight numbers increase (later years), success rates generally improve across all launch sites. CCAFS SLC-40 has the highest volume of launches.
 
-## Payload Mass vs. Launch Site
+### Payload Mass vs. Launch Site
 -   **Insight**: Launch sites like KSC LC-39A handle a wide range of payload masses with high success. VAFB SLC-4E deals with lighter payloads compared to CCAFS SLC-40.
 
-## Success Rate vs. Orbit Type
+### Success Rate vs. Orbit Type
 -   **Insight**: Orbits such as **ES-L1, GEO, HEO, and SSO** show a **100% success rate**. SO (Sun-Synchronous Orbit) has a lower success rate.
 
-## Flight Number vs. Orbit Type
+### Flight Number vs. Orbit Type
 -   **Insight**: LEO (Low Earth Orbit) launches occur consistently throughout the dataset (all flight numbers). GTO launches are also frequent and spread out.
 
-## Payload vs. Orbit Type
+### Payload vs. Orbit Type
 -   **Insight**: Heavy payloads are typically directed to LEO and ISS orbits. GTO orbits show a mix of payload masses.
 
-## Launch Success Yearly Trend
+### Launch Success Yearly Trend
 -   **Insight**: The success rate has steadily **increased** from 2013 to 2020, demonstrating SpaceX's learning curve and reliability improvements.
 
-## All Launch Site Names
+### All Launch Site Names
 -   **Sites**: CCAFS SLC-40, KSC LC-39A, VAFB SLC-4E, CCAFS LC-40.
 
-## Launch Site Names Begin with 'CCA'
+### Launch Site Names Begin with 'CCA'
 -   **Query Result**: CCAFS SLC-40, CCAFS LC-40. All located at Cape Canaveral Air Force Station.
 
-## Total Payload Mass
+### Total Payload Mass
 -   **Insight**: Sum of payload mass carried by NASA boosters is approx. 45,596 kg.
 
-## Average Payload Mass by F9 v1.1
+### Average Payload Mass by F9 v1.1
 -   **Insight**: The average payload mass for version F9 v1.1 is approx. 2,928 kg.
 
-## First Successful Ground Landing Date
+### First Successful Ground Landing Date
 -   **Date**: 2015-12-22.
 
-## Successful Drone Ship Landing with Payload between 4000 and 6000
+### Successful Drone Ship Landing with Payload between 4000 and 6000
 -   **Boosters**: B1022, B1026, B1021.2, B1031.2.
 
-## Total Number of Successful and Failure Mission Outcomes
+### Total Number of Successful and Failure Mission Outcomes
 -   **Insight**: Success outcomes significantly outnumber failure outcomes.
 
-## Boosters Carried Maximum Payload
+### Boosters Carried Maximum Payload
 -   **Insight**: Boosters like B1048, B1049, B1051 carried the max payload (approx 15,600 kg).
 
-## 2015 Launch Records
+### 2015 Launch Records
 -   **Insight**: In 2015, failed drone ship landings occurred at CCAFS SLC-40 with booster v1.1.
 
-## Rank Landing Outcomes Between 2010-06-04 and 2017-03-20
+### Rank Landing Outcomes Between 2010-06-04 and 2017-03-20
 -   **Insight**: 'No Attempt' was common in early years. 'Success (drone ship)' became the most frequent successful outcome in this period.
 
 # Launch Sites Proximities Analysis
