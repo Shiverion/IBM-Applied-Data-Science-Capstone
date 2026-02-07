@@ -199,21 +199,27 @@ graph TD
 ## Insight drawn from EDA
 ### Flight Number vs. Launch Site
 -   **Insight**: As flight numbers increase (later years), success rates generally improve across all launch sites. CCAFS SLC-40 has the highest volume of launches.
+![Flight Number vs. Launch Site](./images/FlightNumber_vs_LaunchSite.png)
 
 ### Payload Mass vs. Launch Site
 -   **Insight**: Launch sites like KSC LC-39A handle a wide range of payload masses with high success. VAFB SLC-4E deals with lighter payloads compared to CCAFS SLC-40.
+![Payload Mass vs. Launch Site](./images/PayloadMass_vs_LaunchSite.png)
 
 ### Success Rate vs. Orbit Type
 -   **Insight**: Orbits such as **ES-L1, GEO, HEO, and SSO** show a **100% success rate**. SO (Sun-Synchronous Orbit) has a lower success rate.
+![Success Rate vs. Orbit Type](./images/SuccessRate_vs_Orbit.png)
 
 ### Flight Number vs. Orbit Type
 -   **Insight**: LEO (Low Earth Orbit) launches occur consistently throughout the dataset (all flight numbers). GTO launches are also frequent and spread out.
+![Flight Number vs. Orbit Type](./images/FlightNumber_vs_Orbit.png)
 
 ### Payload vs. Orbit Type
 -   **Insight**: Heavy payloads are typically directed to LEO and ISS orbits. GTO orbits show a mix of payload masses.
+![Payload vs. Orbit Type](./images/PayloadMass_vs_Orbit.png)
 
 ### Launch Success Yearly Trend
 -   **Insight**: The success rate has steadily **increased** from 2013 to 2020, demonstrating SpaceX's learning curve and reliability improvements.
+![Launch Success Yearly Trend](./images/LaunchSuccess_YearlyTrend.png)
 
 ### All Launch Site Names
 -   **Sites**: CCAFS SLC-40, KSC LC-39A, VAFB SLC-4E, CCAFS LC-40.
