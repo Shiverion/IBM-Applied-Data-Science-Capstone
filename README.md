@@ -322,3 +322,31 @@ The model demonstrates a strong ability to identify successful landings but show
 -   **Model Reliability**: Machine Learning models can predict landing outcomes with reasonably high accuracy (~83%), providing actionable insights for mission planning.
 -   **Continuous Improvement**: The clear upward trend in success rates demonstrates SpaceX's rapid iteration and technological advancement.
 
+# Appendix
+
+## SQL Queries
+Here are some key SQL queries used during the exploratory data analysis:
+
+**1. Calculate Total Payload Mass for NASA (CRS)**
+```sql
+SELECT SUM(PAYLOAD_MASS__KG_) FROM SPACEXTABLE WHERE Customer = 'NASA (CRS)';
+```
+
+**2. Find Boosters with Maximum Payload Mass**
+```sql
+SELECT Booster_Version FROM SPACEXTABLE WHERE PAYLOAD_MASS__KG_ = (SELECT MAX(PAYLOAD_MASS__KG_) FROM SPACEXTABLE);
+```
+
+**3. Rank Landing Outcomes (2010-2017)**
+```sql
+SELECT Landing_Outcome, COUNT(*) AS Count FROM SPACEXTABLE
+WHERE Date BETWEEN '2010-06-04' AND '2017-03-20'
+GROUP BY Landing_Outcome
+ORDER BY Count DESC;
+```
+
+## Python Scripts
+Below are custom scripts created for the dashboard and visualization tasks:
+
+- **[spacex_dash_app.py](./spacex_dash_app.py)**: The source code for the Plotly Dash interactive dashboard.
+- **[visualize_confusion_matrix.py](./visualize_confusion_matrix.py)**: Script used to reproduce the Decision Tree model training and generate the confusion matrix visualization.
