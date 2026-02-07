@@ -185,7 +185,7 @@ graph TD
     D --> F[SVM];
     D --> G[Decision Tree];
     D --> H[KNN];
-    E & F & G & H --> I[Hyperparameter Tuning (GridSearchCV)];
+    E & F & G & H --> I["Hyperparameter Tuning (GridSearchCV)"];
     I --> J[Evaluate Accuracy];
     J --> K[Best Model Selection];
 ```
