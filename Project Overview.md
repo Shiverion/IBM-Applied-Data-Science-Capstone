@@ -47,7 +47,7 @@ graph TD
     C --> D[Filter: Falcon 9 Launches];
     D --> E[Extract Core Attributes];
     B -- Web Scraping --> F[Wikipedia HTML];
-    F --> G[BeautifulSoup Parsing];
+    F --> G["BeautifulSoup Parsing"];
     G --> H[Extract Table Data];
     E --> I[Pandas DataFrame];
     H --> I;
@@ -91,7 +91,7 @@ graph TD
 ```mermaid
 graph TD
     A[Start] --> B[Request Wikipedia Page];
-    B --> C[Parse HTML (BeautifulSoup)];
+    B --> C["Parse HTML (BeautifulSoup)"];
     C --> D[Find All Tables];
     D --> E[Identify Launch Records Table];
     E --> F[Iterate Over Rows];
