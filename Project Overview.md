@@ -275,21 +275,7 @@ graph TD
 ### Rank Landing Outcomes Between 2010-06-04 and 2017-03-20
 -   **Insight**: 'No Attempt' was common in early years. 'Success (drone ship)' became the most frequent successful outcome in this period.
 
-# Launch Sites Proximities Analysis
-## <Folium Map Screenshot 1>
-- Replace <Folium map screenshot 1> title with an appropriate title
-- Explore the generated folium map and make a proper screenshot to include all launch sites’ location markers on a global map
-- Explain the important elements and findings on the screenshot
 
-## <Folium Map Screenshot 2>
-- Replace <Folium map screenshot 2> title with an appropriate title
-- Explore the folium map and make a proper screenshot to show the color-labeled launch outcomes on the map
-- Explain the important elements and findings on the screenshot
-
-## <Folium Map Screenshot 3>
-- Replace <Folium map screenshot 3> title with an appropriate title
-- Explore the generated folium map and show the screenshot of a selected launch site to its proximities such as railway, highway, coastline, with distance calculated and displayed
-- Explain the important elements and findings on the screenshot
 
 # Built a Dashboard with Plotly Dash
 
@@ -312,14 +298,23 @@ graph TD
 
 # Predictive Analysis (Classification)
 ## Classification Accuracy
+![Classification Model Accuracy](./images/model_accuracy.png)
 -   **Logistic Regression**: 84.6% (Train), 83.3% (Test)
 -   **SVM**: 84.8% (Train), 83.3% (Test)
 -   **Decision Tree**: 88.9% (Train), 83.3% (Test)
 -   **KNN**: 84.8% (Train), 83.3% (Test)
 -   **Conclusion**: The Decision Tree model had the highest training accuracy, but all models generalized equally well to the test data with **83.33% accuracy**.
 
-## Confusion Matrix
--   The confusion matrix for the best models (e.g., Logistic Regression) typically showed a high number of True Positives and True Negatives. The main source of error was often False Positives (predicting landing success when it actually failed), which were minimal.
+## Confusion Matrix (Decision Tree)
+![Confusion Matrix](./images/confusion_matrix.png)
+
+The Decision Tree model achieved an accuracy of **83.33%** on the test set. The confusion matrix reveals:
+-   **True Positives (12)**: Correctly predicted successful landings.
+-   **True Negatives (3)**: Correctly predicted failed landings.
+-   **False Positives (3)**: Incorrectly predicted successful landings (Type I Error).
+-   **False Negatives (0)**: No failed landings were missed (Type II Error).
+
+The model demonstrates a strong ability to identify successful landings but shows a slight tendency to be optimistic, occasionally classifying failures as successes.
 
 ## Conclusions
 -   **Reusability is Key**: Successful landings of the first stage are becoming routine, driving down launch costs.

@@ -224,6 +224,30 @@ graph TD
 ### All Launch Site Names
 -   **Sites**: CCAFS SLC-40, KSC LC-39A, VAFB SLC-4E, CCAFS LC-40.
 
+## Launch Sites Locations Analysis
+
+### 1. Launch Site Locations
+![Launch Site Locations](./images/Folium_SS_1.png)
+**Explanation**: The map above visualizes the geographical locations of all SpaceX launch sites.
+-   **Key Finding 1**: All launch sites are located close to the **coast**. This safety measure ensures that in the event of a launch failure, debris falls into the ocean rather than populated areas.
+-   **Key Finding 2**: The sites are positioned as close to the **Equator** as possible (within US territory) to maximize the boost received from Earth's rotation, reducing fuel consumption.
+
+### 2. Launch Outcomes (Success/Failure)
+![Launch Outcomes](./images/Folium_SS_2.png)
+**Explanation**: This zoomed-in view shows the outcomes of individual launches using color-coded markers (Green = Success, Red = Failure).
+-   **Key Finding**: **KSC LC-39A** and **VAFB SLC-4E** exhibit very high success rates with predominantly green markers. **CCAFS SLC-40**, being one of the busiest sites, shows a mix of successes and failures, reflecting the iterative learning process of early Falcon 9 launches.
+
+### 3. Proximity to Key Infrastructures
+![Proximity Analysis](./images/Folium_SS_3.png)
+**Explanation**: This analysis highlights the distance between launch sites and critical infrastructure.
+-   **Coastlines**: Launch sites are extremely close to the coast (< 1-2 km) for safety.
+-   **Transport**: Sites are located near **railways** and **highways** to facilitate the transport of heavy rockets and payloads.
+-   **Safety**: There is a safe buffer distance kept from **cities** and densely populated areas to minimize risk.
+
+
+
+
+
 ### Launch Site Names Begin with 'CCA'
 -   **Query Result**: CCAFS SLC-40, CCAFS LC-40. All located at Cape Canaveral Air Force Station.
 
@@ -251,24 +275,6 @@ graph TD
 ### Rank Landing Outcomes Between 2010-06-04 and 2017-03-20
 -   **Insight**: 'No Attempt' was common in early years. 'Success (drone ship)' became the most frequent successful outcome in this period.
 
-# Launch Sites Proximities Analysis
-## 1. Launch Site Locations
-![Launch Site Locations](./images/Folium_SS_1.png)
-**Explanation**: The map above visualizes the geographical locations of all SpaceX launch sites.
--   **Key Finding 1**: All launch sites are located close to the **coast**. This safety measure ensures that in the event of a launch failure, debris falls into the ocean rather than populated areas.
--   **Key Finding 2**: The sites are positioned as close to the **Equator** as possible (within US territory) to maximize the boost received from Earth's rotation, reducing fuel consumption.
-
-## 2. Launch Outcomes (Success/Failure)
-![Launch Outcomes](./images/Folium_SS_2.png)
-**Explanation**: This zoomed-in view shows the outcomes of individual launches using color-coded markers (Green = Success, Red = Failure).
--   **Key Finding**: **KSC LC-39A** and **VAFB SLC-4E** exhibit very high success rates with predominantly green markers. **CCAFS SLC-40**, being one of the busiest sites, shows a mix of successes and failures, reflecting the iterative learning process of early Falcon 9 launches.
-
-## 3. Proximity to Key Infrastructures
-![Proximity Analysis](./images/Folium_SS_3.png)
-**Explanation**: This analysis highlights the distance between launch sites and critical infrastructure.
--   **Coastlines**: Launch sites are extremely close to the coast (< 1-2 km) for safety.
--   **Transport**: Sites are located near **railways** and **highways** to facilitate the transport of heavy rockets and payloads.
--   **Safety**: There is a safe buffer distance kept from **cities** and densely populated areas to minimize risk.
 
 
 # Built a Dashboard with Plotly Dash
@@ -292,14 +298,23 @@ graph TD
 
 # Predictive Analysis (Classification)
 ## Classification Accuracy
+![Classification Model Accuracy](./images/model_accuracy.png)
 -   **Logistic Regression**: 84.6% (Train), 83.3% (Test)
 -   **SVM**: 84.8% (Train), 83.3% (Test)
 -   **Decision Tree**: 88.9% (Train), 83.3% (Test)
 -   **KNN**: 84.8% (Train), 83.3% (Test)
 -   **Conclusion**: The Decision Tree model had the highest training accuracy, but all models generalized equally well to the test data with **83.33% accuracy**.
 
-## Confusion Matrix
--   The confusion matrix for the best models (e.g., Logistic Regression) typically showed a high number of True Positives and True Negatives. The main source of error was often False Positives (predicting landing success when it actually failed), which were minimal.
+## Confusion Matrix (Decision Tree)
+![Confusion Matrix](./images/confusion_matrix.png)
+
+The Decision Tree model achieved an accuracy of **83.33%** on the test set. The confusion matrix reveals:
+-   **True Positives (12)**: Correctly predicted successful landings.
+-   **True Negatives (3)**: Correctly predicted failed landings.
+-   **False Positives (3)**: Incorrectly predicted successful landings (Type I Error).
+-   **False Negatives (0)**: No failed landings were missed (Type II Error).
+
+The model demonstrates a strong ability to identify successful landings but shows a slight tendency to be optimistic, occasionally classifying failures as successes.
 
 ## Conclusions
 -   **Reusability is Key**: Successful landings of the first stage are becoming routine, driving down launch costs.
