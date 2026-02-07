@@ -224,18 +224,7 @@ graph TD
 ### All Launch Site Names
 -   **Sites**: CCAFS SLC-40, KSC LC-39A, VAFB SLC-4E, CCAFS LC-40.
 
-## Launch Sites Locations Analysis
-### Launch Site Locations
-The map below shows the locations of all launch sites.
-![Launch Site Locations](./images/launch_site_locations.png)
 
-### Launch Outcomes
-Green markers indicate successful launches, while red markers indicate failures.
-![Launch Outcomes](./images/launch_site_markers.png)
-
-### Proximities Analysis
-Launch sites are typically located near coastlines to minimize risk during launch.
-![Launch Site Proximities](./images/launch_site_proximities.png)
 
 
 ### Launch Site Names Begin with 'CCA'
