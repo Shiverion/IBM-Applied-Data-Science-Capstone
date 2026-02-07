@@ -222,7 +222,18 @@ graph TD
 ![Launch Success Yearly Trend](./images/LaunchSuccess_YearlyTrend.png)
 
 ### All Launch Site Names
--   **Sites**: CCAFS SLC-40, KSC LC-39A, VAFB SLC-4E, CCAFS LC-40.
+**Query**:
+```sql
+SELECT DISTINCT Launch_Site FROM SPACEXTABLE;
+```
+**Result**:
+1. CCAFS LC-40
+2. VAFB SLC-4E
+3. KSC LC-39A
+4. CCAFS SLC-40
+
+**Explanation**: The query identifies 4 unique values for launch sites. It's important to note that **CCAFS LC-40** and **CCAFS SLC-40** refer to the same location (Cape Canaveral Space Launch Complex 40) but are recorded consistently in the dataset due to different naming conventions over time.
+
 
 ## Launch Sites Locations Analysis
 
