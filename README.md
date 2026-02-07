@@ -235,6 +235,78 @@ SELECT DISTINCT Launch_Site FROM SPACEXTABLE;
 **Explanation**: The query identifies 4 unique values for launch sites. It's important to note that **CCAFS LC-40** and **CCAFS SLC-40** refer to the same location (Cape Canaveral Space Launch Complex 40) but are recorded consistently in the dataset due to different naming conventions over time.
 
 
+### Launch Site Names Begin with 'CCA'
+**Query**:
+```sql
+SELECT * FROM SPACEXTABLE WHERE Launch_Site LIKE 'CCA%' LIMIT 5;
+```
+**Result**: Displays the first 5 records for launches from Cape Canaveral.
+**Explanation**: Can be used to inspect data specifically for sites starting with 'CCA' (e.g., CCAFS SLC-40).
+
+### Total Payload Mass Carried by NASA (CRS)
+**Query**:
+```sql
+SELECT SUM(PAYLOAD_MASS__KG_) FROM SPACEXTABLE WHERE Customer = 'NASA (CRS)';
+```
+**Result**: 45,596 kg
+**Explanation**: Calculated the total payload mass transported for NASA (CRS) missions.
+
+### Average Payload Mass by F9 v1.1
+**Query**:
+```sql
+SELECT AVG(PAYLOAD_MASS__KG_) FROM SPACEXTABLE WHERE Booster_Version = 'F9 v1.1';
+```
+**Result**: ~2,928 kg
+**Explanation**: Calculated the average payload mass for the Falcon 9 v1.1 booster.
+
+### First Successful Ground Landing Date
+**Query**:
+```sql
+SELECT MIN(Date) FROM SPACEXTABLE WHERE Landing_Outcome = 'Success (ground pad)';
+```
+**Result**: 2015-12-22
+**Explanation**: Identified the date of the first successful landing on a ground pad.
+
+### Successful Drone Ship Landing with Payload between 4000 and 6000
+**Query**:
+```sql
+SELECT Booster_Version FROM SPACEXTABLE WHERE Landing_Outcome = 'Success (drone ship)' AND PAYLOAD_MASS__KG_ > 4000 AND PAYLOAD_MASS__KG_ < 6000;
+```
+**Result**: F9 FT B1022, F9 FT B1026, F9 FT B1021.2, F9 FT B1031.2
+**Explanation**: Listed booster versions that successfully landed on a drone ship with a payload between 4000 and 6000 kg.
+
+### Total Number of Successful and Failure Mission Outcomes
+**Query**:
+```sql
+SELECT Mission_Outcome, COUNT(*) FROM SPACEXTABLE GROUP BY Mission_Outcome;
+```
+**Result**: Success: 98, Failure (in flight): 1, Success (payload status unclear): 1
+**Explanation**: Shows the breakdown of mission outcomes, highlighting the high success rate.
+
+### Boosters Carried Maximum Payload
+**Query**:
+```sql
+SELECT Booster_Version FROM SPACEXTABLE WHERE PAYLOAD_MASS__KG_ = (SELECT MAX(PAYLOAD_MASS__KG_) FROM SPACEXTABLE);
+```
+**Result**: F9 B5 B1048.4, F9 B5 B1049.4, F9 B5 B1051.3, etc.
+**Explanation**: Identified the boosters that carried the heaviest payloads (~15,600 kg).
+
+### 2015 Launch Records (Failure on Drone Ship)
+**Query**:
+```sql
+SELECT substr(Date, 6, 2) as Month, Landing_Outcome, Booster_Version, Launch_Site FROM SPACEXTABLE WHERE substr(Date, 0, 5)='2015' AND Landing_Outcome='Failure (drone ship)';
+```
+**Result**: two records: January (F9 v1.1 B1012) and April (F9 v1.1 B1015).
+**Explanation**: Listed the failed drone ship landings that occurred in 2015.
+
+### Rank Landing Outcomes Between 2010-06-04 and 2017-03-20
+**Query**:
+```sql
+SELECT Landing_Outcome, COUNT(*) AS Count FROM SPACEXTABLE WHERE Date BETWEEN '2010-06-04' AND '2017-03-20' GROUP BY Landing_Outcome ORDER BY Count DESC;
+```
+**Result**: No attempt (10), Success (drone ship) (5), Failure (drone ship) (5), etc.
+**Explanation**: Ranked the landing outcomes during the specified date range.
+
 ## Launch Sites Locations Analysis
 
 ### 1. Launch Site Locations
@@ -254,38 +326,6 @@ SELECT DISTINCT Launch_Site FROM SPACEXTABLE;
 -   **Coastlines**: Launch sites are extremely close to the coast (< 1-2 km) for safety.
 -   **Transport**: Sites are located near **railways** and **highways** to facilitate the transport of heavy rockets and payloads.
 -   **Safety**: There is a safe buffer distance kept from **cities** and densely populated areas to minimize risk.
-
-
-
-
-
-### Launch Site Names Begin with 'CCA'
--   **Query Result**: CCAFS SLC-40, CCAFS LC-40. All located at Cape Canaveral Air Force Station.
-
-### Total Payload Mass
--   **Insight**: Sum of payload mass carried by NASA boosters is approx. 45,596 kg.
-
-### Average Payload Mass by F9 v1.1
--   **Insight**: The average payload mass for version F9 v1.1 is approx. 2,928 kg.
-
-### First Successful Ground Landing Date
--   **Date**: 2015-12-22.
-
-### Successful Drone Ship Landing with Payload between 4000 and 6000
--   **Boosters**: B1022, B1026, B1021.2, B1031.2.
-
-### Total Number of Successful and Failure Mission Outcomes
--   **Insight**: Success outcomes significantly outnumber failure outcomes.
-
-### Boosters Carried Maximum Payload
--   **Insight**: Boosters like B1048, B1049, B1051 carried the max payload (approx 15,600 kg).
-
-### 2015 Launch Records
--   **Insight**: In 2015, failed drone ship landings occurred at CCAFS SLC-40 with booster v1.1.
-
-### Rank Landing Outcomes Between 2010-06-04 and 2017-03-20
--   **Insight**: 'No Attempt' was common in early years. 'Success (drone ship)' became the most frequent successful outcome in this period.
-
 
 
 # Built a Dashboard with Plotly Dash
