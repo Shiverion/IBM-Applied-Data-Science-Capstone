@@ -1,13 +1,9 @@
-# Task
-The final task of this capstone project is to create a presentation that summarizes the results of all tasks completed in the previous modules and labs. The presentation should tell a clear and engaging story of your data science journey throughout the project and be easy to follow
+# IBM Applied Data Science Capstone: SpaceX Falcon 9 Landing Prediction
 
-# Outline
-- Executive Summary
-- Introduction
-- Methodology
-- Results
-- Conclusion
-- Appendix
+## Project Overview
+The commercial space industry is rapidly evolving, with SpaceX leading the charge by making space travel more affordable. The main goal of this project is to predict if the Falcon 9 first stage will land successfully. This insight helps estimate launch costs, giving competitors and stakeholders a strategic edge.
+
+This repository contains the complete analysis, including data collection, wrangling, exploratory data analysis (EDA), visualization, and machine learning models.
 
 # Executive Summary
 ## Summary of methodologies
