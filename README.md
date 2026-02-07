@@ -224,30 +224,6 @@ graph TD
 ### All Launch Site Names
 -   **Sites**: CCAFS SLC-40, KSC LC-39A, VAFB SLC-4E, CCAFS LC-40.
 
-## Launch Sites Locations Analysis
-
-### 1. Launch Site Locations
-![Launch Site Locations](./images/Folium_SS_1.png)
-**Explanation**: The map above visualizes the geographical locations of all SpaceX launch sites.
--   **Key Finding 1**: All launch sites are located close to the **coast**. This safety measure ensures that in the event of a launch failure, debris falls into the ocean rather than populated areas.
--   **Key Finding 2**: The sites are positioned as close to the **Equator** as possible (within US territory) to maximize the boost received from Earth's rotation, reducing fuel consumption.
-
-### 2. Launch Outcomes (Success/Failure)
-![Launch Outcomes](./images/Folium_SS_2.png)
-**Explanation**: This zoomed-in view shows the outcomes of individual launches using color-coded markers (Green = Success, Red = Failure).
--   **Key Finding**: **KSC LC-39A** and **VAFB SLC-4E** exhibit very high success rates with predominantly green markers. **CCAFS SLC-40**, being one of the busiest sites, shows a mix of successes and failures, reflecting the iterative learning process of early Falcon 9 launches.
-
-### 3. Proximity to Key Infrastructures
-![Proximity Analysis](./images/Folium_SS_3.png)
-**Explanation**: This analysis highlights the distance between launch sites and critical infrastructure.
--   **Coastlines**: Launch sites are extremely close to the coast (< 1-2 km) for safety.
--   **Transport**: Sites are located near **railways** and **highways** to facilitate the transport of heavy rockets and payloads.
--   **Safety**: There is a safe buffer distance kept from **cities** and densely populated areas to minimize risk.
-
-
-
-
-
 ### Launch Site Names Begin with 'CCA'
 -   **Query Result**: CCAFS SLC-40, CCAFS LC-40. All located at Cape Canaveral Air Force Station.
 
@@ -276,36 +252,43 @@ graph TD
 -   **Insight**: 'No Attempt' was common in early years. 'Success (drone ship)' became the most frequent successful outcome in this period.
 
 # Launch Sites Proximities Analysis
-## <Folium Map Screenshot 1>
-- Replace <Folium map screenshot 1> title with an appropriate title
-- Explore the generated folium map and make a proper screenshot to include all launch sites’ location markers on a global map
-- Explain the important elements and findings on the screenshot
+## 1. Launch Site Locations
+![Launch Site Locations](./images/Folium_SS_1.png)
+**Explanation**: The map above visualizes the geographical locations of all SpaceX launch sites.
+-   **Key Finding 1**: All launch sites are located close to the **coast**. This safety measure ensures that in the event of a launch failure, debris falls into the ocean rather than populated areas.
+-   **Key Finding 2**: The sites are positioned as close to the **Equator** as possible (within US territory) to maximize the boost received from Earth's rotation, reducing fuel consumption.
 
-## <Folium Map Screenshot 2>
-- Replace <Folium map screenshot 2> title with an appropriate title
-- Explore the folium map and make a proper screenshot to show the color-labeled launch outcomes on the map
-- Explain the important elements and findings on the screenshot
+## 2. Launch Outcomes (Success/Failure)
+![Launch Outcomes](./images/Folium_SS_2.png)
+**Explanation**: This zoomed-in view shows the outcomes of individual launches using color-coded markers (Green = Success, Red = Failure).
+-   **Key Finding**: **KSC LC-39A** and **VAFB SLC-4E** exhibit very high success rates with predominantly green markers. **CCAFS SLC-40**, being one of the busiest sites, shows a mix of successes and failures, reflecting the iterative learning process of early Falcon 9 launches.
 
-## <Folium Map Screenshot 3>
-- Replace <Folium map screenshot 3> title with an appropriate title
-- Explore the generated folium map and show the screenshot of a selected launch site to its proximities such as railway, highway, coastline, with distance calculated and displayed
-- Explain the important elements and findings on the screenshot
+## 3. Proximity to Key Infrastructures
+![Proximity Analysis](./images/Folium_SS_3.png)
+**Explanation**: This analysis highlights the distance between launch sites and critical infrastructure.
+-   **Coastlines**: Launch sites are extremely close to the coast (< 1-2 km) for safety.
+-   **Transport**: Sites are located near **railways** and **highways** to facilitate the transport of heavy rockets and payloads.
+-   **Safety**: There is a safe buffer distance kept from **cities** and densely populated areas to minimize risk.
+
 
 # Built a Dashboard with Plotly Dash
-## <Dashboard Screenshot 1>
-- Replace <Dashboard screenshot 1> title with an appropriate title
-- Show the screenshot of launch success count for all sites, in a piechart
-- Explain the important elements and findings on the screenshot
 
-## <Dashboard Screenshot 2>
-- Replace <Dashboard screenshot 2> title with an appropriate title
-- Show the screenshot of the piechart for the launch site with highest launch success ratio
-- Explain the important elements and findings on the screenshot
+## 1. Launch Success Count for All Sites
+![All Sites Success Distribution](./images/plotlydash_1.png)
+**Explanation**: The pie chart shows the proportion of successful launches contributed by each launch site. **KSC LC-39A** contributes the highest percentage of successful launches, followed by CCAFS SLC-40.
 
-## <Dashboard Screenshot 3>
-- Replace <Dashboard screenshot 3> title with an appropriate title
-- Show screenshots of Payload vs. Launch Outcome scatter plot for all sites, with different payload selected in the range slider
-- Explain the important elements and findings on the screenshot, such as which payload range or booster version have the largest success rate, etc.
+## 2. Launch Success Ratio for KSC LC-39A
+![Site Success Ratio](./images/plotlydash_2.png)
+**Explanation**: This pie chart represents the success vs. failure ratio for **KSC LC-39A**. It has a very high success rate (approx 76.9%), making it one of the most reliable sites.
+
+## 3. Payload vs. Launch Outcome (All Sites)
+![Payload vs Outcome](./images/plotlydash_3.png)
+**Explanation**: The scatter plot visualizes the correlation between Payload Mass and Launch Outcome.
+-   **Observations**:
+    -   High payload masses (> 5000 kg) generally have higher success rates.
+    -   **KSC LC-39A** (Green) and **VAFB SLC-4E** (Red) show strong performance across various payload ranges.
+    -   Heavier payloads are largely successful, indicating the reliability of the Falcon 9 for heavy lift missions.
+
 
 # Predictive Analysis (Classification)
 ## Classification Accuracy

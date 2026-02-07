@@ -292,20 +292,23 @@ graph TD
 - Explain the important elements and findings on the screenshot
 
 # Built a Dashboard with Plotly Dash
-## <Dashboard Screenshot 1>
-- Replace <Dashboard screenshot 1> title with an appropriate title
-- Show the screenshot of launch success count for all sites, in a piechart
-- Explain the important elements and findings on the screenshot
 
-## <Dashboard Screenshot 2>
-- Replace <Dashboard screenshot 2> title with an appropriate title
-- Show the screenshot of the piechart for the launch site with highest launch success ratio
-- Explain the important elements and findings on the screenshot
+## 1. Launch Success Count for All Sites
+![All Sites Success Distribution](./images/plotlydash_1.png)
+**Explanation**: The pie chart shows the proportion of successful launches contributed by each launch site. **KSC LC-39A** contributes the highest percentage of successful launches, followed by CCAFS SLC-40.
 
-## <Dashboard Screenshot 3>
-- Replace <Dashboard screenshot 3> title with an appropriate title
-- Show screenshots of Payload vs. Launch Outcome scatter plot for all sites, with different payload selected in the range slider
-- Explain the important elements and findings on the screenshot, such as which payload range or booster version have the largest success rate, etc.
+## 2. Launch Success Ratio for KSC LC-39A
+![Site Success Ratio](./images/plotlydash_2.png)
+**Explanation**: This pie chart represents the success vs. failure ratio for **KSC LC-39A**. It has a very high success rate (approx 76.9%), making it one of the most reliable sites.
+
+## 3. Payload vs. Launch Outcome (All Sites)
+![Payload vs Outcome](./images/plotlydash_3.png)
+**Explanation**: The scatter plot visualizes the correlation between Payload Mass and Launch Outcome.
+-   **Observations**:
+    -   High payload masses (> 5000 kg) generally have higher success rates.
+    -   **KSC LC-39A** (Green) and **VAFB SLC-4E** (Red) show strong performance across various payload ranges.
+    -   Heavier payloads are largely successful, indicating the reliability of the Falcon 9 for heavy lift missions.
+
 
 # Predictive Analysis (Classification)
 ## Classification Accuracy
