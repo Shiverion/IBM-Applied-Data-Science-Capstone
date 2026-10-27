@@ -401,3 +401,33 @@ Below are custom scripts created for the dashboard and visualization tasks:
 
 - **[spacex_dash_app.py](./spacex_dash_app.py)**: The source code for the Plotly Dash interactive dashboard.
 - **[visualize_confusion_matrix.py](./visualize_confusion_matrix.py)**: Script used to reproduce the Decision Tree model training and generate the confusion matrix visualization.
+
+## System Design
+
+### Requirements
+
+- Build an analysis pipeline for Falcon 9 launch outcomes from API and scraped records.
+- Produce cleaned datasets, exploratory and geospatial visualizations, a Dash dashboard, and classification results.
+
+### Pipeline
+
+```text
+SpaceX API / Wikipedia → collection notebooks → wrangled CSV
+                       → SQL and exploratory analysis
+                       → Folium / Plotly Dash / scikit-learn outputs
+```
+
+The repository contains independent notebooks, dashboard scripts, a CSV used by the Dash app, and saved figures. It is a coursework analysis repository, not a continuously refreshed service.
+
+### Trade-offs
+
+| Decision | Benefit | Cost |
+| --- | --- | --- |
+| Keep collection and analysis in notebooks | Makes each learning stage visible | Re-running requires external sources and notebook state |
+| Export intermediate CSV files | Lets dashboards consume prepared data | Data freshness depends on rerunning collection and wrangling |
+
+### What to Revisit
+
+- Add an environment file and a single documented run order for the notebooks.
+- Record source retrieval dates and preserve raw API responses for reproducibility.
+- Validate dashboard and model outputs against the same versioned dataset.
